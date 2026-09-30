@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Candidato {
+  id          Int              @id @default(autoincrement())
+  nome        String
+  nomeUrna    String
+  numero      Int
+  partido     String
+  cargo       String
+  uf          String
+  ativo       Boolean          @default(true)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  lancamentos LancamentoVoto[]
+
+  @@unique([cargo, numero])
+}
+
+model LancamentoVoto {
+  id          Int       @id @default(autoincrement())
+  candidatoId Int
+  quantidade  Int
+  createdAt   DateTime  @default(now())
+  candidato   Candidato @relation(fields: [candidatoId], references: [id])
+
+  @@index([candidatoId])
+}
+
+model Participacao {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+}
