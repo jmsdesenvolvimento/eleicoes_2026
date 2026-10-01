@@ -1,0 +1,422 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f4f7;
+  color: #1f2937;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.pesquisa {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.pesquisa h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 28px;
+  color: #123b68;
+}
+
+.pesquisa h2 {
+  margin: 6px 0 24px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.subtitulo {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}
+
+.cargo {
+  margin-bottom: 22px;
+}
+
+.cargo label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.linha-voto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.linha-voto input {
+  width: 130px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 16px;
+  outline: none;
+}
+
+.linha-voto input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.linha-voto button {
+  height: 42px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.linha-voto button:not(.branco) {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.linha-voto button:not(.branco):hover {
+  background: #1d4ed8;
+}
+
+.linha-voto button.confirmado {
+  background: #16a34a;
+}
+
+.linha-voto button.confirmado:hover {
+  background: #15803d;
+}
+
+.linha-voto button.branco {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.linha-voto button.branco:hover {
+  background: #d1d5db;
+}
+
+.linha-voto button.branco.selecionado {
+  background: #6b7280;
+  color: #ffffff;
+}
+
+.candidato {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: #f0fdf4;
+  border-left: 4px solid #16a34a;
+  border-radius: 6px;
+}
+
+.candidato strong {
+  display: block;
+  color: #15803d;
+}
+
+.candidato span {
+  display: block;
+  color: #374151;
+  font-size: 14px;
+}
+
+.erro {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  border-left: 4px solid #dc2626;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.concluir {
+  width: 100%;
+  height: 48px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #123b68;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.concluir:hover {
+  background: #0f3155;
+}
+
+.concluir:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.mensagem {
+  margin-top: 16px;
+  padding: 12px;
+  text-align: center;
+  background: #eff6ff;
+  color: #1e40af;
+  border-radius: 7px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 20px 12px;
+  }
+
+  .pesquisa {
+    padding: 22px 16px;
+    border-radius: 10px;
+  }
+
+  .pesquisa h1 {
+    font-size: 23px;
+  }
+
+  .pesquisa h2 {
+    font-size: 17px;
+  }
+
+  .linha-voto {
+    gap: 6px;
+  }
+
+  .linha-voto input {
+    width: 95px;
+  }
+
+  .linha-voto button {
+    padding: 0 10px;
+    font-size: 11px;
+  }
+}
+
+.admin {
+  min-height: 100vh;
+  padding: 30px 20px;
+  background: #f2f4f7;
+}
+
+.admin-login,
+.admin-painel {
+  width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.admin-login {
+  max-width: 420px;
+}
+
+.admin-painel {
+  max-width: 850px;
+}
+
+.admin-login h1,
+.admin-painel h1 {
+  margin: 0;
+  text-align: center;
+  color: #123b68;
+}
+
+.admin-login h2,
+.admin-painel h2 {
+  margin: 14px 0 18px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.total-participacoes {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+}
+
+.total-participacoes strong {
+  color: #123b68;
+  font-size: 15px;
+}
+
+.apuracao-cargo {
+  margin-bottom: 20px;
+}
+
+.apuracao-cargo h3 {
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 15px;
+  color: #123b68;
+}
+
+.apuracao-cargo p {
+  margin: 8px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.apuracao-cargo table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.apuracao-cargo th,
+.apuracao-cargo td {
+  padding: 6px 8px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.apuracao-cargo th:nth-child(1),
+.apuracao-cargo td:nth-child(1) {
+  width: 80px;
+}
+
+.apuracao-cargo th:nth-child(2),
+.apuracao-cargo td:nth-child(2) {
+  width: 45%;
+  text-align: left;
+}
+
+.apuracao-cargo th:nth-child(3),
+.apuracao-cargo td:nth-child(3) {
+  width: 25%;
+  text-align: left;
+}
+
+.apuracao-cargo th:nth-child(4),
+.apuracao-cargo td:nth-child(4) {
+  width: 100px;
+}
+
+.apuracao-cargo th {
+  font-weight: bold;
+  color: #374151;
+  background: #f8fafc;
+}
+
+.apuracao-cargo td {
+  color: #374151;
+}
+
+.apuracao-cargo td:last-child {
+  font-weight: bold;
+  color: #123b68;
+}
+
+.admin-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-login label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.admin-login input {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.admin-login button {
+  height: 42px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 7px;
+  background: #123b68;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.admin-login button:hover {
+  background: #0f3155;
+}
+
+.admin-login button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.admin-erro {
+  margin-top: 12px;
+  padding: 9px;
+  text-align: center;
+  background: #fef2f2;
+  color: #b91c1c;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.atualizar-apuracao {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.atualizar-apuracao:hover {
+  background: #d1d5db;
+}
+
+.aviso-educacional {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.aviso-educacional strong {
+  font-size: 11px;
+  color: #4b5563;
+}

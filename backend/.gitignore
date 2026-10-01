@@ -1,0 +1,19 @@
+node_modules
+
+# Keep environment variables out of version control
+.env
+
+/src/generated/prisma
+
+# SQLite database
+dev.db
+dev.db-journal
+*.db
+*.db-journal
+
+# npm logs
+npm-debug.log*
+
+.agents/
+.claude/
+.windsurf/
